@@ -8,7 +8,7 @@ def get_books(limit=50):
         res = requests.get(url, headers=headers, params=params)
         return res.json().get("docs",[])
     except Exception as e:
-        printf(f"Error: {e}")
+        print(f"Error: {e}")
         exit()
 
 books = get_books()
