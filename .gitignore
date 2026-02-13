@@ -1,5 +1,31 @@
-openlib/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Local artifacts
+books.csv
+.pytest_cache/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-workspace
+
+# OS files
+.DS_Store
+openlib
 books.csv
 .~lock.books.csv#
 test.py
-.github/
+.github
