@@ -17,6 +17,10 @@ A small utility that queries the OpenLibrary Search API for math-related books a
 Use a virtual environment (venv) to keep dependencies isolated. The examples below use `python3` — adjust if your system uses a different executable.
 
 ```zsh
+#clone the repository
+git clone https://github.com/mnnjbb2006-cmyk/MathBooks
+cd MathBooks
+
 # Create and activate a venv in the project directory
 python3 -m venv .venv
 source .venv/bin/activate
