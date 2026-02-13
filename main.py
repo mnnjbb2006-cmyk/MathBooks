@@ -11,10 +11,11 @@ def get_books(limit=50):
         print(f"Error: {e}")
         exit()
 
-books = get_books(50)
+books = get_books()
 
 with open("books.csv", "w") as f:
     writer = csv.writer(f)
     writer.writerow(["Title", "Author", "Year", "Publisher"])
     for book in books:
-        writer.writerow([book.get("title", ""), book.get("author_name", [""])[0], book.get("first_publish_year", ""), book.get("publisher", [""])[0]])
+        if book.get("first_publish_year", "") != "" and book["first_publish_year"] > 2000:
+            writer.writerow([book.get("title", ""), book.get("author_name", [""])[0], book.get("first_publish_year", ""), book.get("publisher", [""])[0]])
