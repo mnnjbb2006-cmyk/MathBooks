@@ -14,7 +14,6 @@ env/
 .venv/
 
 # Local artifacts
-books.csv
 .pytest_cache/
 
 # Editor directories and files
