@@ -25,7 +25,6 @@ books.csv
 # OS files
 .DS_Store
 openlib
-books.csv
 .~lock.books.csv#
 test.py
 .github
