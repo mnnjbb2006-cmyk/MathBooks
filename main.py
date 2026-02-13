@@ -3,7 +3,7 @@ import requests, csv
 def get_books(limit=50):
     url = "https://openlibrary.org/search.json"
     headers = {"User-agent":"Mathbooks (mnnjbb.2006@gmail.com)"}
-    params = {"q":"math", "limit":limit}
+    params = {"q":"", "limit":limit, "subject":"math"}
     try:
         res = requests.get(url, headers=headers, params=params)
         return res.json().get("docs",[])
