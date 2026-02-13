@@ -1,4 +1,4 @@
-import requests
+import requests, csv
 
 def get_books(limit=50):
     url = "https://openlibrary.org/search.json"
@@ -11,4 +11,10 @@ def get_books(limit=50):
         printf(f"Error: {e}")
         exit()
 
-print(get_books())
+books = get_books()
+
+with open("books.csv", "w") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Title", "Author", "Year"])
+    for book in books:
+        writer.writerow([book.get("title", ""), book.get("author_name", [""])[0], book.get("first_publish_year", "")])
