@@ -1,12 +1,18 @@
-import requests
 import csv
+from typing import Any
+
+import requests
 
 
-def get_books(limit=50):
+def get_books(limit: int = 50) -> list[dict[str, Any]]:
     url = "https://openlibrary.org/search.json"
     headers = {"User-agent": "Mathbooks (mnnjbb.2006@gmail.com)"}
-    params = {"q": "", "limit": limit, "subject": "math", "fields": [
-        "title", "author_name", "first_publish_year", "publisher"]}
+    params: dict[str, str | int | list[str]] = {
+        "q": "",
+        "limit": limit,
+        "subject": "math",
+        "fields": ["title", "author_name", "first_publish_year", "publisher"],
+    }
     try:
         res = requests.get(url, headers=headers, params=params)
         return res.json().get("docs", [])
@@ -15,7 +21,7 @@ def get_books(limit=50):
         exit()
 
 
-books = get_books()
+books: list[dict[str, Any]] = get_books()
 
 with open("books.csv", "w") as f:
     writer = csv.writer(f)
